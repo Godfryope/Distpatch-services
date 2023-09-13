@@ -1,0 +1,11 @@
+{% extends "dispatch_app/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-success text-center">
+        <h1 class="display-4">Order Placed Successfully</h1>
+        <p class="lead">Your order has been placed successfully. Thank you for choosing our service.</p>
+        <p>Your order ID is: {{ order.id }}</p>
+    </div>
+</div>
+{% endblock %}

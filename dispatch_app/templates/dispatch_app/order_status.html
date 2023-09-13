@@ -1,0 +1,34 @@
+{% extends 'dispatch_app/base.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Order Information</h2>
+            <ul class="list-group pb-4">
+                <li class="list-group-item"><strong>Order ID:</strong> {{ order.id }}</li>
+                <li class="list-group-item"><strong>Customer Name:</strong> {{ order.customer.name }}</li>
+                <li class="list-group-item"><strong>Delivery Address:</strong> {{ order.customer.address }}</li>
+            </ul>
+
+            <h2>Tracking Information</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Delivery Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if order %}
+                    <tr>
+                        <td>{{ order.status }}</td>
+                        <td>{{ order.created_at|date:"F d, Y" }}</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

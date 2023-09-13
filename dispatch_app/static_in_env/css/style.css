@@ -1,0 +1,19 @@
+/* dispatch_app/static/css/style.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+}

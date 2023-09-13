@@ -1,0 +1,48 @@
+{% extends "dispatch_app/base.html" %}
+
+
+{% block content %}
+<div class="container mb-5">
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-8 col-sm-12 p-4">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="pt-5">
+                    <!-- Customer Information -->
+                    <h2>Customer Information</h2>
+                    <div class="form-group">
+                        <label for="customer_name">Name</label>
+                        <input type="text" class="form-control" id="customer_name" name="customer_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Delivery Address</label>
+                        <textarea class="form-control" id="address" name="address" required></textarea>
+                    </div>
+                    
+                    <!-- Order Details -->
+                    <h2>Order Details</h2>
+                    <div class="form-group">
+                        <label for="product">Product</label>
+                        <select class="form-control" id="product" name="product" required>
+                            <option value="" disabled selected>Select a product</option>
+                            {% for product in products %}
+                                <option value="{{ product.id }}">{{ product.name }} - ${{ product.price }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity" min="1" required>
+                    </div>
+                    
+                    <!-- Place Order Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Place Order</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
