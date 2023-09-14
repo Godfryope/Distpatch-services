@@ -44,7 +44,7 @@ class Order(models.Model):
     dispatcher = models.ForeignKey(Dispatcher, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     products = models.ManyToManyField(Product, through='OrderItem')  # Create a separate OrderItem model for line items
-    status = models.CharField(max_length=50, choices=STATUS_CHOICES)  # Default status
+    status = models.CharField(max_length=50, choices=STATUS_CHOICES, default="Order Placed")  # Default status
 
     def __str__(self):
         return f"Order #{self.id} by {self.customer.name}"

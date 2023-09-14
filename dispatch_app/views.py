@@ -55,9 +55,9 @@ class OrderListView(View):
 
     def get(self, request):
         orders = Order.objects.all()
-        order_items = OrderItem.objects.filter(order__in=orders).select_related('product')
-        context = {'order_items': order_items}
+        context = {'orders': orders}  # Pass the orders queryset to the context
         return render(request, self.template_name, context)
+
 
 class OrderStatusView(View):
     template_name = 'dispatch_app/order_status.html'
